@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+content="Cyber First Aid helps people identify suspicious URLs, check scam messages, and learn digital safety.">
+    <meta name="theme-color" content="#081d43">
+
+<title>Cyber First Aid | Digital Safety Platform</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+        <div class="brand">
+            <div class="brand-icon">🛡️</div>
+
+            <div>
+                <h1>Cyber First Aid</h1>
+                <p>Your Digital Safety Assistant</p>
+            </div>
+        </div>
+
+        <div class="status">
+            <span class="status-dot"></span>
+            Security Tools Active
+        </div>
+    </header>
+
+
+    <main class="container">
+
+        <!-- ================= HERO ================= -->
+        <section class="hero">
+            <span class="eyebrow">
+                INTELLIGENT CYBER PROTECTION
+            </span>
+
+            <h2>
+                Detect Threats.
+                <span>Protect People.</span>
+            </h2>
+
+            <p>
+                Analyze suspicious messages, identify potential online scams,
+                understand social engineering tactics, and receive practical
+                digital safety guidance.
+            </p>
+        </section>
+
+
+        <!-- ================= SECURITY DASHBOARD ================= -->
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+                <h2>Security Dashboard</h2>
+                <p>Your scanning activity on this device.</p>
+            </div>
+
+            <div class="stats-grid">
+
+                <article class="stat-card">
+                    <span class="stat-icon">🔍</span>
+                    <p>Total Scans</p>
+                    <h3 id="totalScans">0</h3>
+                </article>
+
+                <article class="stat-card">
+                    <span class="stat-icon">🔗</span>
+                    <p>URL Scans</p>
+                    <h3 id="urlScans">0</h3>
+                </article>
+
+                <article class="stat-card">
+                    <span class="stat-icon">💬</span>
+                    <p>Message Scans</p>
+                    <h3 id="messageScans">0</h3>
+                </article>
+
+                <article class="stat-card">
+                    <span class="stat-icon">⚠️</span>
+                    <p>Flagged Results</p>
+                    <h3 id="flaggedScans">0</h3>
+                </article>
+
+            </div>
+        </section>
+
+
+        <!-- ================= URL AND MESSAGE SCANNERS ================= -->
+        <section class="scanner-grid">
+
+            <!-- URL Scanner -->
+            <article class="card">
+
+                <div class="card-heading">
+                    <div class="card-icon">🔗</div>
+
+                    <div>
+                        <h3>Suspicious URL Scanner</h3>
+                        <p>
+                            Check website addresses for common warning signs.
+                        </p>
+                    </div>
+                </div>
+
+                <form id="urlForm">
+
+                    <label for="urlInput">
+                        Website URL
+                    </label>
+
+                    <input
+                        type="text"
+                        id="urlInput"
+                        placeholder="https://example.com"
+                        autocomplete="url"
+                        required
+                    >
+
+                    <button type="submit" class="btn">
+                        🔍 Scan URL
+                    </button>
+
+                </form>
+
+                <div
+                    id="urlResult"
+                    class="result"
+                    aria-live="polite"
+                ></div>
+
+            </article>
+
+
+            <!-- Message Scanner -->
+            <article class="card">
+
+                <div class="card-heading">
+                    <div class="card-icon">💬</div>
+
+                    <div>
+                        <h3>Scam Message Checker</h3>
+                        <p>
+                            Review suspicious SMS, email, and chat messages.
+                        </p>
+                    </div>
+                </div>
+
+                <form id="messageForm">
+
+                    <label for="messageInput">
+                        Suspicious Message
+                    </label>
+
+                    <textarea
+                        id="messageInput"
+                        placeholder="Paste a suspicious message here..."
+                        required
+                    ></textarea>
+
+                    <button type="submit" class="btn">
+                        🛡️ Check Message
+                    </button>
+
+                </form>
+
+                <div
+                    id="messageResult"
+                    class="result"
+                    aria-live="polite"
+                ></div>
+
+            </article>
+
+        </section>
+
+
+
+        <!-- ================= SCAN HISTORY ================= -->
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+                <h2>Recent Scan History</h2>
+
+                <p>
+                    Review previous scan results stored on this device.
+                </p>
+            </div>
+
+            <article class="card history-card">
+
+                <div class="history-actions">
+
+                    <button
+                        type="button"
+                        id="downloadReport"
+                        class="btn secondary-btn"
+                    >
+                        📄 Download Report
+                    </button>
+
+                    <button
+                        type="button"
+                        id="clearHistory"
+                        class="btn danger-btn"
+                    >
+                        Clear History
+                    </button>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Type</th>
+                                <th>Item</th>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="historyBody">
+
+                            <tr>
+                                <td colspan="4">
+                                    No scans performed yet.
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <p class="helper-text">
+                    Scan history is stored in your browser.
+                    Avoid storing sensitive information in scan records.
+                </p>
+
+            </article>
+
+        </section>
+
+
+        <!-- ================= MULTILINGUAL SAFETY GUIDE ================= -->
+        <section class="tips-section">
+
+            <div class="section-heading">
+                <h2>Digital Safety Guide</h2>
+
+                <p>
+                    Learn essential ways to protect yourself online.
+                </p>
+            </div>
+
+
+            <div class="language-control">
+
+                <label for="languageSelect">
+                    Choose your language
+                </label>
+
+                <select id="languageSelect">
+
+                    <option value="en">English</option>
+                    <option value="kn">ಕನ್ನಡ (Kannada)</option>
+                    <option value="hi">हिन्दी (Hindi)</option>
+                    <option value="ta">தமிழ் (Tamil)</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="tip-grid">
+
+                <article class="tip-card">
+
+                    <div class="tip-icon">🔑</div>
+
+                    <h3 data-tip="passwordTitle">
+                        Protect Your Passwords
+                    </h3>
+
+                    <p data-tip="passwordText">
+                        Use strong, unique passwords and enable
+                        multifactor authentication.
+                    </p>
+
+                </article>
+
+
+                <article class="tip-card">
+
+                    <div class="tip-icon">🔗</div>
+
+                    <h3 data-tip="linkTitle">
+                        Verify Every Link
+                    </h3>
+
+                    <p data-tip="linkText">
+                        Check the domain carefully before opening
+                        links or entering personal information.
+                    </p>
+
+                </article>
+
+
+                <article class="tip-card">
+
+                    <div class="tip-icon">🔐</div>
+
+                    <h3 data-tip="otpTitle">
+                        Keep OTPs Private
+                    </h3>
+
+                    <p data-tip="otpText">
+                        Never share OTPs, banking PINs, or passwords
+                        with callers or messages.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CYBER EMERGENCY ASSISTANT ================= -->
+        <section class="emergency-section">
+
+            <div class="section-heading">
+                <h2>🚨 Cyber Emergency Assistant</h2>
+
+                <p>
+                    Choose your situation to receive immediate
+                    safety recommendations.
+                </p>
+            </div>
+
+
+            <article class="card">
+
+                <label for="emergencySelect">
+                    What happened?
+                </label>
+
+                <select id="emergencySelect">
+
+                    <option value="">
+                        Select a situation
+                    </option>
+
+                    <option value="payment">
+                        I may have lost money to a scam
+                    </option>
+
+                    <option value="password">
+                        I shared my password
+                    </option>
+
+                    <option value="otp">
+                        I shared an OTP or banking PIN
+                    </option>
+
+                    <option value="link">
+                        I clicked a suspicious link
+                    </option>
+
+                    <option value="account">
+                        My account may be compromised
+                    </option>
+
+                </select>
+
+
+                <button
+                    type="button"
+                    id="emergencyButton"
+                    class="btn"
+                >
+                    Get Safety Steps
+                </button>
+
+
+                <div
+                    id="emergencyResult"
+                    class="result"
+                    aria-live="polite"
+                ></div>
+
+            </article>
+
+
+            <p class="emergency-note">
+                In India, report suspected cyber financial fraud promptly
+                by calling 1930 and using the official
+                National Cyber Crime Reporting Portal.
+            </p>
+
+            <p>
+                Official reporting portal:
+                <a
+                    href="https://cybercrime.gov.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    cybercrime.gov.in
+                </a>
+            </p>
+
+        </section>
+
+
+        <!-- ================= SOCIAL ENGINEERING ANALYZER ================= -->
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+                <h2>🧠 Social Engineering Analyzer</h2>
+
+                <p>
+                    Discover potential manipulation techniques hidden
+                    in suspicious messages.
+                </p>
+            </div>
+
+
+            <article class="card social-engineering-card">
+
+                <div class="card-heading">
+
+                    <div class="card-icon">🔎</div>
+
+                    <div>
+                        <h3>Manipulation Detection</h3>
+
+                        <p>
+                            Identify urgency, fear, impersonation,
+                            financial pressure, and suspicious requests.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <form id="socialEngineeringForm">
+
+                    <label for="socialMessage">
+                        Message to analyze
+                    </label>
+
+                    <textarea
+                        id="socialMessage"
+                        rows="5"
+                        placeholder="Paste the message you want to examine..."
+                        required
+                    ></textarea>
+
+                    <button type="submit" class="btn">
+                        Analyze Manipulation
+                    </button>
+
+                </form>
+
+
+                <div
+                    id="socialEngineeringResult"
+                    class="result"
+                    aria-live="polite"
+                ></div>
+
+            </article>
+
+        </section>
+
+
+        <!-- ================= SCAM SIMULATOR ================= -->
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+                <h2>🎯 Scam Awareness Simulator</h2>
+
+                <p>
+                    Practise recognizing suspicious situations
+                    before encountering them in real life.
+                </p>
+            </div>
+
+
+            <article class="card simulator-card">
+
+                <div class="card-heading">
+
+                    <div class="card-icon">🎓</div>
+
+                    <div>
+                        <h3>Scenario-Based Cyber Training</h3>
+
+                        <p>
+                            Learn how to respond to common online scams.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div id="simulatorContent">
+
+                    <p>
+                        You receive a message offering a remote internship.
+                        The recruiter asks you to pay a registration fee
+                        before you can begin.
+                    </p>
+
+                    <h4>What should you do?</h4>
+
+                    <div class="simulator-options">
+
+                        <button
+                            type="button"
+                            class="btn simulator-option"
+                            data-answer="wrong"
+                        >
+                            Pay immediately to secure the opportunity.
+                        </button>
+
+                        <button
+                            type="button"
+                            class="btn simulator-option"
+                            data-answer="correct"
+                        >
+                            Independently verify the company and job offer.
+                        </button>
+
+                        <button
+                            type="button"
+                            class="btn simulator-option"
+                            data-answer="wrong"
+                        >
+                            Share bank details to prove my identity.
+                        </button>
+
+                    </div>
+
+                    <div
+                        id="simulatorFeedback"
+                        class="result"
+                        aria-live="polite"
+                    ></div>
+
+                </div>
+
+            </article>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+
+        <p>
+🛡️ Cyber First Aid — Think Before You Click.
+        </p>
+
+        <p>
+            An educational cybersecurity platform with
+            scam detection tools and digital safety guidance.
+        </p>
+
+        <p>
+            Automated results are not guarantees of safety.
+        </p>
+
+    </footer>
+
+
+    <!-- Application JavaScript -->
+    
+<!-- NEW CYBERSECURITY FEATURES -->
+<section id="extra-security-tools" class="security-tools">
+
+    <div class="security-heading">
+        <span class="security-badge">CYBER FIRST AID</span>
+        <h2>Advanced Security Toolkit</h2>
+        <p>Practical cybersecurity tools to help you stay safe online.</p>
+    </div>
+
+    <!-- 1. PASSWORD STRENGTH CHECKER -->
+    <div class="security-card">
+        <h3>🔐 Password Strength Checker</h3>
+        <p>Check password strength locally in your browser.</p>
+
+        <label for="passwordInput">Enter a test password</label>
+        <input
+            type="password"
+            id="passwordInput"
+            placeholder="Enter a password"
+            autocomplete="off"
+        >
+
+        <button type="button" id="checkPasswordBtn">
+            Check Strength
+        </button>
+
+        <div id="passwordResult" class="security-result"
+             aria-live="polite"></div>
+    </div>
+
+    <!-- 2. PHISHING URL DETECTOR -->
+    <div class="security-card">
+        <h3>🎣 Phishing URL Detector</h3>
+        <p>Check a URL for suspicious characteristics.</p>
+
+        <label for="phishingUrlInput">Website URL</label>
+        <input
+            type="text"
+            id="phishingUrlInput"
+            placeholder="https://example.com"
+        >
+
+        <button type="button" id="checkPhishingUrlBtn">
+            Analyze URL
+        </button>
+
+        <div id="phishingUrlResult" class="security-result"
+             aria-live="polite"></div>
+    </div>
+
+    <!-- 3. TWO-FACTOR AUTHENTICATION GUIDE -->
+    <div class="security-card">
+        <h3>🛡️ Two-Factor Authentication Guide</h3>
+        <p>Add another layer of protection to your accounts.</p>
+
+        <ol>
+            <li>Open your account's official security settings.</li>
+            <li>Find Two-Factor Authentication or Two-Step Verification.</li>
+            <li>Choose an authenticator app or security key when available.</li>
+            <li>Save backup codes somewhere secure.</li>
+            <li>Never share verification codes with anyone.</li>
+        </ol>
+
+        <p class="security-note">
+            Prefer phishing-resistant passkeys or security keys when supported.
+        </p>
+    </div>
+
+    <!-- 4. CYBER INCIDENT RESPONSE GUIDE -->
+    <div class="security-card">
+        <h3>🚨 Cyber Incident Response Guide</h3>
+        <p>Select the situation to see recommended actions.</p>
+
+        <label for="incidentType">Choose an incident</label>
+        <select id="incidentType">
+            <option value="">Select an incident</option>
+            <option value="hacked">Account hacked</option>
+            <option value="upi">UPI or financial fraud</option>
+            <option value="phishing">Clicked a phishing link</option>
+            <option value="malware">Possible malware infection</option>
+            <option value="social">Social media account compromised</option>
+        </select>
+
+        <button type="button" id="incidentGuideBtn">
+            Show Emergency Steps
+        </button>
+
+        <div id="incidentResult" class="security-result"
+             aria-live="polite"></div>
+    </div>
+
+    <!-- 5. SHA-256 FILE HASH GENERATOR -->
+    <div class="security-card">
+        <h3>🔒 SHA-256 File Hash Generator</h3>
+        <p>Calculate a file's SHA-256 hash in your browser.</p>
+
+        <label for="hashFileInput">Choose a file</label>
+        <input type="file" id="hashFileInput">
+
+        <button type="button" id="generateHashBtn">
+            Generate SHA-256 Hash
+        </button>
+
+        <div id="hashResult" class="security-result"
+             aria-live="polite"></div>
+
+        <p class="security-note">
+            This calculates a file hash; it does not prove that a file is safe.
+            Compare the result with a hash from a trusted source.
+        </p>
+    </div>
+
+    <!-- 6. CYBERSECURITY QUIZ -->
+    <div class="security-card">
+        <h3>🧠 Cybersecurity Knowledge Quiz</h3>
+        <p>Test your knowledge of online safety.</p>
+
+        <div id="quizContainer"></div>
+
+        <button type="button" id="submitQuizBtn">
+            Submit Quiz
+        </button>
+
+        <div id="quizResult" class="security-result"
+             aria-live="polite"></div>
+    </div>
+
+</section>
+</section>
+<!-- End Advanced Security Toolkit -->
+
+<!-- Application JavaScript -->
+<script src="script.js"></script>
+</body>
+</html>
+</body>
+</html>
